@@ -1,0 +1,62 @@
+/* CSS Document */
+body{
+	font-family:Verdana, Geneva, sans-serif;
+	overflow: scroll;
+}
+h3{
+	color:#609;	
+}
+a{
+	border-style: none;	
+	margin: 30px;
+}
+label{
+	font-size: 13px;
+	font-weight:bold;	
+}
+input:hover{
+	background-color:#FECFFE;
+}
+input, select{
+	border: 1px solid #FCF;
+	border-radius: 3px;
+}
+fieldset{
+	border: 1px solid #FCF;
+	border-radius: 5px;
+}
+#orderForm{
+	background-color:#FFF2FB;	
+	padding-left: 40px;
+}
+#menu{
+	float: left;
+}
+#mainFrame{
+	font-size: 12px;
+}
+.error{
+	display: none;
+	font-size: 12px;
+	color:#F00;
+	font-weight: bold;
+}
+#header{
+	clear: left;
+}
+#currentCost{
+	font-size: 14px;
+	color:#C3F;
+	font-weight:bold;	
+}
+#addItem{
+	font-size: 14px;
+	color:#C3F;
+	font-weight:bold;	
+}
+#submitOrder, #reset {
+	font-size: 15px;
+	color:#C3F;
+	font-weight:bold;
+	margin: 5px;
+}

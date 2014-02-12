@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Main</title>
+	<link rel="stylesheet" type="text/css" href="styles/main.css"/>        
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>
+</head>
+
+<body onload="getFocus();">
+	<h2>Order Form</h2>
+	<fieldset>
+    <form id="orderForm" name="orderForm" onsubmit="return validate();" 
+		method="post" action="main.php">
+	 	<table width="860" border="0">
+	    	<tr>
+	      		<td width="275"><label for="lastName"><strong>Last Name: 
+	      			</strong></label>
+          			<input type="text" onblur="trimOnBlur(this);" 
+                    	name="lastName" id="lastName" /></td>
+                <td width="330"><span class="lastNameError">Please, enter Last Name</span>
+               	</td>
+        	</tr>
+	    	<tr>
+	      		<td><label for="firstName"><strong>First Name: </strong>
+	      				</label>
+          			<input type="text" onblur="trimOnBlur(this);" 
+          				name="firstName" id="firstName" /><br />
+          			<span class="error">Please, enter First Name</span></td>
+          		<td><label for="email"><strong>E-mail: </strong>
+          				</label>
+          			<input type="text" onblur="trimOnBlur(this);" 
+          				name="email" id="email" size="30" 
+                        placeholder="myEmail@popsicle.wow" /><br />
+                    <span class="error">Please, enter valid E-mail</span></td>
+          		<td width="350"><label for="phoneNumber"><strong>Phone Number: 
+          				</strong></label>
+          			<input type="text" onblur="trimOnBlur(this);" 
+          				name="phoneNumber" id="phoneNumber" size="15" 
+                        placeholder="(111)222-3333" />
+          				<br /><small>(i.e. (111)222-3333)</small><br />
+          			<span class="error">Please, enter valid Phone number Name
+          				</span></td>
+        	</tr>
+	    	<tr>
+	      		<td><h3>Shipping Address</h3></td>
+	      			<td>&nbsp;</td>
+        	</tr>
+	    	<tr>
+	      		<td><label for="streetNumber"><strong>Street Number: </strong>
+	      			</label>
+            		<input type="text" onblur="trimOnBlur(this);"
+                    	name="streetNumber" id="streetNumber" size="10" /><br />
+                    <span class="error">Please, enter Street Number</span></td>
+	      		<td><label for="street"><strong>Street:</strong></label>
+          			<input type="text" onblur="trimOnBlur(this);"
+                    	name="street" id="street" size="30" /><br />
+                    <span class="error">Please, enter Street</span></td>
+	      		<td><label for="postalCode"><strong>Postal Code: </strong>
+	      			</label>
+          			<input type="text" onblur="trimAndToUpperOnBlur(this);" 
+          				name="postalCode" id="postalCode" placeholder="A2A 2A2" 
+          				size="7"  />
+          				<br /><small>(i.e. A2A 2A2)</small><br />
+          				<span class="error">Please, enter valid Postal Code</span>
+          		</td>
+        	</tr>
+	    	<tr>
+	      		<td><label for="city"><strong>City: </strong></label>
+	      			<input type="text" onblur="trimOnBlur(this);" 
+                    	name="city" id="city" size="20" /><br />
+                    <span class="error">Please, enter City</span>
+	      		</td>
+	      		<td><label for="province"><strong>Province:</strong></label>
+            		<select name="province" id="province">
+              			<option value="0" selected="selected">
+              				-- select --</option>
+              			<option value="on">Ontario</option>
+              			<option value="qc">Quebec</option>
+              			<option value="ns">Nova Scotia</option>
+              			<option value="nb">New Brunwick</option>
+              			<option value="mb">Manitoba</option>
+              			<option value="ab">Alberta</option>
+              			<option value="bc">British Columbia</option>
+              			<option value="pe">Prince Edward Island</option>
+              			<option value="sk">Saskatchewan</option>
+              			<option value="nl">Newfoundland &amp; Labrador</option>
+              			<option value="nt">Northwest Territories</option>
+              			<option value="yt">Yukon</option>
+              			<option value="nu">Nunavut</option>
+            		</select>
+            		<span class="error">Please, select the Province</span></td>
+	      		<td><label for="country"><strong>Country:</strong></label>
+          			<input type="text" onblur="trimOnBlur(this);" 
+                    	name="country" id="country" /><br />
+                    <span class="error">Please, enter Country</span></td>
+	      		<td>&nbsp;</td>
+        	</tr>
+        	<tr>&nbsp;</tr>
+	    	<tr>
+	    </table>
+	    <table>
+        	<tr>
+	      		<td width="130"><h3>Popsicle:</h3></td>
+	      		<td width="130"><h3>Quantity: </h3></td>
+	      	</tr>
+	      	<tr>
+	      		<td><label for="orangeQuantity"><strong> Orange </strong>
+	      			</label></td>
+	      		<td width="230"><input type="text" onblur="trimOnBlur(this);" 
+	      			name="orangeQuantity" id="orangeQuantity" size="5" />
+	      			<span class="error">Please, enter Quantity</span></td>
+	      		<td>&nbsp;</td>
+        	</tr>
+        	<tr>
+	      		<td><label for="cherryQuantity"><strong> Cherry </strong>
+	      			</label></td>
+	      		<td><input type="text" onblur="trimOnBlur(this);" 
+	      			name="cherryQuantity" id="cherryQuantity" size="5" /></td>
+	      		<td>&nbsp;</td>
+        	</tr>
+        	<tr>
+	      		<td><label for="grapeQuantity"><strong> Grape 
+	      			</strong></label></td>
+	      		<td><input type="text" onblur="trimOnBlur(this);" 
+	      			name="grapeQuantity" id="grapeQuantity" size="5" /></td>
+	      		<td><input type="submit" name="submitOrder" id="submitOrder" 
+	      			value="Submit Order" /></td>
+        	</tr>
+        	<tr>
+	      		<td><label for="jollyRancherQuantity"><strong> Jolly Rancher 
+	      			</strong></label></td>
+	      		<td><input type="text" onblur="trimOnBlur(this);" 
+	      			name="jollyRancherQuantity" id="jollyRancherQuantity" 
+	      			size="5" /></td>
+	      		<td><input type="reset" name="reset" id="reset"
+                	value="Reset Form"></td>
+        	</tr>
+        	<tr>
+	      		<td><label for"spongeBobQuantity"><strong> Sponge Bob 
+	      			</strong></label></td>
+	      		<td width="170"><input type="text" onblur="trimOnBlur(this);" 
+	      			name="spongeBobQuantity" id="spongeBobQuantity" 
+	      			size="5" /></td>
+	      		<td>&nbsp;</td>
+        	</tr>
+	    	<tr>
+	      		<td>&nbsp;</td>
+	      		<td>&nbsp;</td>
+	      		<td>&nbsp;</td>
+        	</tr>
+	    	<tr>
+	      		<td>&nbsp;</td>
+	      		
+        	</tr>
+	    	<tr>
+	      		<td><p>&nbsp;</p>
+          			<p>&nbsp;</p></td>
+	      		<td>&nbsp;</td>
+	      		<td>&nbsp;</td>
+        	</tr>
+      	</table>
+        </fieldset>
+	</form>
+</body>
+</html>
