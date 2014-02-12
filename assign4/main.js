@@ -1,10 +1,10 @@
 // JavaScript Document
 
-//function getFocus()
-//{
-//	document.orderForm.lastName.focus();
-//	document.orderForm.country.value = "Canada";	
-//}
+function getFocus()
+{
+	document.orderForm.lastName.focus();
+	document.orderForm.country.value = "Canada";	
+}
 
 // Trim all text fields on blur
 function trimOnBlur(myField)
